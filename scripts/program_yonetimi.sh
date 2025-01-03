@@ -1,12 +1,22 @@
 #!/bin/bash
 
-function disk_alan_goster() {
-    DISK_KULLANIMI=$(df -h --output=source,size,used,avail,pcent / | tail -n 1)
+function disk_alan_gosterOLD() {
+    DISK_KULLANIMI=$(df -h --output=source,size,used,avail,pcent . | tail -n 1)
+    DISK_KULLANIMI=$(df -h --output=source,size,used,avail,pcent .)
+    DISK_KULLANIMI=$(df -h .)
     zenity --info --title="Disk Kullanımı" --text="Disk Kullanımı:\n$DISK_KULLANIMI"
 }
 
+function disk_alan_goster() {
+	hedefler="./scripts/** ./csvFiles/*.csv main.sh"
+
+    toplam_alan=$(du -ch $hedefler 2>/dev/null | grep total | awk '{print $1}')
+    zenity --info \
+        --title="Disk Kullanımı" \
+        --text="Toplam Disk Kullanımı: $toplam_alan"
+}
+
 function yedekle() {
- 
 	if [ ! -d "yedekler" ]; then
 		mkdir "yedekler"
 	fi
