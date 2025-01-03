@@ -13,7 +13,7 @@ if [[ -z "$URUN_ADI" || -z "$STOK" || -z "$FIYAT" || -z "$KATEGORI" ]]; then
     exit 1
 fi
 
-if ! [[ $STOK =~ ^[0-9]+$ && $FIYAT =~ ^[0-9]+(\.[0-9]+)?$ ]]; then
+if ! [[ $STOK =~ ^[0-9]+$ && $FIYAT =~ ^[0-9]+(\[.,][0-9]{1,2})?$ ]]; then
     zenity --error --text="Stok ve fiyat negatif olamaz."
     exit 1
 fi

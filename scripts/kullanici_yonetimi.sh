@@ -68,7 +68,7 @@ function kullanici_guncelle() {
 
         YENI_MD5_PAROLA=$(echo -n "$YENI_PAROLA" | md5sum | awk '{print $1}')
 
-        sed -i "/^$KULLANICI_ID,/ s/[^,]*,[^,]*,[^,]*,[^,]*$/$YENI_ADI,$YENI_SOYADI,$YENI_ROL,$YENI_MD5_PAROLA/" "csvFiles/kullanici.csv"
+        sed -i "" "/^$KULLANICI_ID,/ s/[^,]*,[^,]*,[^,]*,[^,]*$/$YENI_ADI,$YENI_SOYADI,$YENI_ROL,$YENI_MD5_PAROLA/" "csvFiles/kullanici.csv"
 
         zenity --info --text="Kullanıcı başarıyla güncellendi."
     else

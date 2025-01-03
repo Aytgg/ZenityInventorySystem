@@ -5,7 +5,7 @@ URUN_ADI=$(zenity --entry --title="Ürün Sil" --text="Silmek istediğiniz ürü
 zenity --question --text="Bu ürünü silmek istediğinizden emin misiniz?"
 if [[ $? -eq 0 ]]; then
     if grep -q ",$URUN_ADI," csvFiles/depo.csv; then
-        sed -i "/,$URUN_ADI,/d" csvFiles/depo.csv
+		sed -i "" "/^[^,]*,$URUN_ADI,/d" "csvFiles/depo.csv"
         zenity --info --text="Ürün başarıyla silindi."
     else
         zenity --error --text="Ürün bulunamadı."

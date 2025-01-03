@@ -21,7 +21,7 @@ fi
 # Ana Menü
 while true; do
     CHOICE=$(zenity --list --title="Envanter Yönetim Sistemi"	\
-		--column="index" --column="İşlem" --hide-column=1	\
+		--column="index" --column="İşlem" --hide-column=1		\
         1 "Giriş"				\
 		2 "Ürün Ekle"			\
         3 "Ürünleri Listele"	\
