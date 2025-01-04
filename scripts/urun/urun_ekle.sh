@@ -18,10 +18,8 @@ if ! [[ $STOK =~ ^[0-9]+$ && $FIYAT =~ ^[0-9]+(\[.,][0-9]{1,2})?$ ]]; then
     exit 1
 fi
 
-# Ürün numarası oluştur
 URUN_NO=$(($(tail -n 1 csvFiles/depo.csv | cut -d',' -f1)+1))
 
-# Ürün ekleme işlemi
 if grep -q ",$URUN_ADI," csvFiles/depo.csv; then
     zenity --error --text="Bu ürün zaten mevcut, lütfen farklı bir ürün adı giriniz."
     echo "$(date),$URUN_ADI,Ürün zaten mevcut" >> csvFiles/log.csv
