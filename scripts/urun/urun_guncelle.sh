@@ -1,7 +1,7 @@
 #!/bin/bash
 
 URUN_ADI=$(zenity --entry --title="Ürün Güncelle" --text="Güncellemek istediğiniz ürünün adını girin:")
-if grep -q ",$URUN_ADI," "csvFiles/depo.csv"; then	# An error occures on this line
+if grep -q ",$URUN_ADI," "csvFiles/depo.csv"; then
 	zenity --info --text="$URUN_ADI"
 	YENI_BILGILER=$(zenity --forms --title="Ürün Güncelle"	\
         --text="Yeni bilgileri giriniz:"	\
