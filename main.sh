@@ -73,7 +73,7 @@ function Login() {
 			done
         else
             zenity --error --text="Hatalı ad, soyad veya parola. Lütfen tekrar deneyiniz."
-        	echo "$(date),Hatalı giriş denemesi." >> csvFiles/log.csv
+        	echo "$(date),Hatalı giriş denemesi" >> csvFiles/log.csv
         fi
     done
 }
