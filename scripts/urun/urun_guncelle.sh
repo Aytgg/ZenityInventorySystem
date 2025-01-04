@@ -15,8 +15,8 @@ if grep -q ",$URUN_ADI," "csvFiles/depo.csv"; then
         exit 1
     fi
 
-    if ! [[ $YENI_FIYAT =~ ^[0-9]+(\[.,][0-9]{1,2})?$ ]]; then
-        zenity --error --text="Birim fiyat negatif olamaz."
+    if ! [[ $YENI_FIYAT =~ ^[0-9]+([\.,][0-9]{1,2})?$ ]]; then
+        zenity --error --text="Birim fiyat negatif ve ondalık kısım iki basamaktan fazla olamaz."
         echo "$(date),$URUN_ADI,Birim fiyat hatalı giriş" >> csvFiles/log.csv
         exit 1
     fi
