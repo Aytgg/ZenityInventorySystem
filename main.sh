@@ -72,6 +72,24 @@ function Login() {
 					5) ./scripts/urun/rapor.sh				;;
 					6) ./scripts/kullanici_yonetimi.sh		;;
 					7) ./scripts/program_yonetimi.sh		;;
+					0)
+						zenity --question --title="Çıkış" --text="Programdan çıkmak istediğinize emin misiniz?"
+						if [ $? -eq 0 ]; then
+							(
+							echo "0"
+							echo "# Çıkış işlemi başlatılıyor..."
+							sleep 1
+							echo "50"
+							echo "# Sistemden çıkılıyor..."
+							sleep 1
+							echo "100"
+							) | zenity --progress --title="Çıkış" --text="Programdan çıkılıyor..." --percentage=0
+
+							exit 0
+						else
+							zenity --info --text="Çıkış iptal edildi."
+						fi
+						;;
 					*) exit
 				esac
 			done

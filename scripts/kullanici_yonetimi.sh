@@ -33,6 +33,16 @@ function kullanici_ekle() {
 
 function kullanici_listele() {
     if [[ -s "csvFiles/kullanici.csv" ]]; then
+		(
+		echo "0"
+		echo "# Kullanıcılar yükleniyor..."
+		sleep 1
+		echo "50"
+		echo "# Kullanıcılar listeleniyor..."
+		sleep 1
+		echo "100"
+		) | zenity --progress --title="Kullanıcı Listesi" --percentage=0 --auto-close
+
     	cat csvFiles/kullanici.csv | column -t -s, | zenity --text-info --title="Kullanıcı Listesi"
         # zenity --text-info --title="Kullanıcı Listesi" --filename="csvFiles/kullanici.csv"
     else
