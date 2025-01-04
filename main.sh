@@ -2,18 +2,22 @@
 
 if [ ! -d "./csvFiles" ]; then
     mkdir ./csvFiles
+	chmod 755 ./csvFiles
 fi
 
 if [[ ! -f "./csvFiles/depo.csv" ]]; then
     touch ./csvFiles/depo.csv
+	chmod 644 ./csvFiles/depo.csv
 fi
 
 if [[ ! -f "./csvFiles/kullanici.csv" ]]; then
     touch ./csvFiles/kullanici.csv
+	chmod 644 ./csvFiles/kullanici.csv
 fi
 
 if [[ ! -f "./csvFiles/log.csv" ]]; then
     touch ./csvFiles/log.csv
+	chmod 644 ./csvFiles/log.csv
 fi
 
 function Login() {
