@@ -4,13 +4,12 @@ URUN_ADI=$(zenity --entry --title="Ürün Güncelle" --text="Güncellemek istedi
 if grep -q ",$URUN_ADI," "csvFiles/depo.csv"; then
 	YENI_BILGILER=$(zenity --forms --title="Ürün Güncelle: $URUN_ADI"	\
         --text="Yeni bilgileri giriniz:"	\
-        --add-entry="Yeni Kategori"			\
 		--add-entry="Yeni Stok Miktarı"		\
         --add-entry="Yeni Birim Fiyatı")
 
-    IFS="|" read -r YENI_KATEGORI YENI_STOK YENI_FIYAT <<< "$YENI_BILGILER"
+    IFS="|" read -r YENI_STOK YENI_FIYAT <<< "$YENI_BILGILER"
 
-	if [[ -z "$YENI_KATEGORI" || -z "$YENI_STOK" || -z "$YENI_FIYAT" ]]; then
+	if [[ -z "$YENI_STOK" || -z "$YENI_FIYAT" ]]; then
 		zenity --error --text="Lütfen tüm alanları doldurup yeniden deneyin."
 		exit 1
 	fi
@@ -28,7 +27,7 @@ if grep -q ",$URUN_ADI," "csvFiles/depo.csv"; then
     fi
 
     if grep -q ",$URUN_ADI," "csvFiles/depo.csv"; then
-		sed -i "" "/^[^,]*,$URUN_ADI,/ s/,[^,]*,[^,]*,[^,]*$/,$YENI_KATEGORI,$YENI_STOK,$YENI_FIYAT/" "csvFiles/depo.csv"
+		sed -i "" "/^[^,]*,$URUN_ADI,[^,]*,/ s/,[^,]*,[^,]*$/,$YENI_STOK,$YENI_FIYAT/" "csvFiles/depo.csv"
 	else
         zenity --error --text="Güncelleme sırasında bir hata oluştu."
         echo "$(date),$URUN_ADI,Güncelleme başarısız (Dosya yazma hatası)" >> csvFiles/log.csv
