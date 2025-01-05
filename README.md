@@ -9,6 +9,8 @@
 
 #### Tutorial:
 
-[Click Here](https://www.youtube.com/404) To Watch on YouTube.
+[Click Here](https://www.youtube.com/watch?v=lLc0QzZQwpk) To Watch on YouTube.
 
 ### Aytuğ DEĞER - 22360859014
+
+#### [Click Here](https://github.com/Aytgg/ZenityInventorySystem.git) to visit GitHub Repo
